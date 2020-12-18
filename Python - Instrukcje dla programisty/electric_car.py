@@ -39,6 +39,13 @@ class Battery:
         print(f'Zasięg tego samochodu wynosi około {range} km,'
               f'po pełnym naładowaniu baterii.')
 
+    def upgrade_battery(self):
+        if self.battery_size < 100:
+            self.battery_size = 100
+            print('Battery upgraded.')
+        else:
+            print('The battery is big enough.')
+
 
 class ElectricCar(Car):
     def __init__(self, maker, model, year):
@@ -46,15 +53,14 @@ class ElectricCar(Car):
         self.battery = Battery()
 
 
-my_car = Car('hyundai', 'sonata', 2009)
-
-my_car.update_odometer(250_000)
-
-my_car.increment_odometer(100)
-
-print(my_car.car_description())
+# my_car = Car('hyundai', 'sonata', 2009)
+# my_car.update_odometer(250_000)
+# my_car.increment_odometer(100)
+# print(my_car.car_description())
 
 my_tesla = ElectricCar('tesla', 'model s', 2019)
 print(my_tesla.car_description())
 my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+my_tesla.battery.upgrade_battery()
 my_tesla.battery.get_range()
